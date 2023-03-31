@@ -12,22 +12,6 @@ header {
     width: 100%;
     height: auto;
 
-    nav>ul {
-        display: flex;
-        padding: 0;
-
-        li {
-            list-style-type: none;
-            margin: 0 15px;
-
-            a {
-                color: white;
-                text-decoration: none;
-                letter-spacing: 2.5px;
-            }
-        }
-    }
-
     div.searchCase {
         @include flexCenter();
 
