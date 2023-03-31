@@ -1,0 +1,31 @@
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 25px;
+    border-radius: 25px;
+    background-color: beige;
+    color: black;
+
+    .titre_card {
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: 1.2px;
+        text-align: center;
+    }
+
+    .img_movies {
+        img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .desc_movies {
+        text-align: justify;
+        height: 280px;
+        overflow-y: auto;
+        font-size: 14px;
+    }
+}

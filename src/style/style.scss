@@ -1,25 +1,28 @@
 // Import de polices d'écritures de Google Fonts
-// @import url();
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 //Création de varibles de styles
-:root{
+:root {
     --full-width: 100%;
     --full-height: 100vh;
+    --montserrat: 'Montserrat',
+        sans-serif;
 }
 
-body{
+body {
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
+    background-color: rgb(48, 19, 80);
+    color: white;
+    font-family: var(--montserrat) !important;
 }
 
 //Thème clair et sombre pour le projet
-@media (prefers-color-scheme: light){
+@media (prefers-color-scheme: light) {}
 
-}
-
-@media (prefers-color-scheme: dark){
-
-}
+@media (prefers-color-scheme: dark) {}
 
 //Import de fichiers styles des composants
-// @import url();
+@import url(pages/_AccueilStyle.scss);
+@import url(composants/_CardMovies.scss);
