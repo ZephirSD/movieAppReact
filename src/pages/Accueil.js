@@ -20,7 +20,7 @@ const Accueil = () => {
                 <NavCompo/>
                 <div className="searchCase">
                     <input type="text" placeholder='Chercher le film' value={valueInput} onChange={(e) => setValueInput(e.target.value)} />
-                    <button className="btnSearch" onClick={(e) => setSearchValue(valueInput)}>Rechercher</button>
+                    <button className="btnSearch" onClick={(e) => setSearchValue(valueInput) }>Rechercher</button>
                 </div>
                 <div className="caseTopFlop" style={{ position: "absolute" }}>
                     <button className="btnTopFlop" onClick={(e) => setsortFilmList(filmList.sort((first, second) => second.vote_average - first.vote_average))}>Top</button>
