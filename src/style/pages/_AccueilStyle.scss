@@ -33,23 +33,38 @@ header {
 
         input[type="text"] {
             border: none;
-            padding: 8px 15px;
-            border: 1px solid black;
+            padding: 10px 15px;
             border-top-left-radius: 25px;
             border-bottom-left-radius: 25px;
             font-family: var(--montserrat);
+            background-color: rgb(255, 207, 148);
+            min-width: 350px;
         }
 
         button {
-            background-color: rgb(1, 1, 175);
+            background-color: rgb(255, 207, 148);
             padding: 10px 15px;
-            color: white;
+            color: black;
             @include flexCenter();
             border: none;
             border-top-right-radius: 25px;
             border-bottom-right-radius: 25px;
             cursor: pointer;
             font-family: var(--montserrat);
+        }
+    }
+
+    div.caseTopFlop {
+        top: 25px;
+        left: 50px;
+
+        button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgb(255, 207, 148);
+            cursor: pointer;
         }
     }
 }
