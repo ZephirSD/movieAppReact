@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import NavCompo from '../composants/NavCompo';
+import React from 'react';
 import CardMovies from '../composants/CardMovies';
+import NavCompo from '../composants/NavCompo';
 
-const CoupsCoeur = () => {
-    const [fetchLocalStor, setfetchLocalStor] = useState([]);
-    useEffect(() => {
-        const arrayStor = localStorage.getItem("cardArray");
-        setfetchLocalStor(arrayStor);
-    },[])
+const CoupsCoeur = ({ filmList }) => {
+    //const [fetchLocalStor, setfetchLocalStor] = useState([]);
+    let arrayStor = [];
+    let valueStor = JSON.parse(localStorage.getItem('cardArray'));
+    arrayStor.push(valueStor);
     return (
         <>
             <header>
@@ -15,13 +14,25 @@ const CoupsCoeur = () => {
             </header>
             <section className="gridMovies">
                 {
-                    fetchLocalStor && fetchLocalStor
+                    arrayStor.length === 1 ?
+                    (
+                        arrayStor
                         .map((film, index) => (
-                            <CardMovies key={index} movie={film}/>
+                            <CardMovies movie={film} key={index}/>
                         ))
+                    ) : 
+                    arrayStor.length > 1 ? 
+                    (
+                        arrayStor
+                        .map((film) => (
+                            film.map((fm, index) => (
+                                <CardMovies movie={fm} key={index}/>
+                            ))
+                        ))
+                    ) : (<></>)
+
                 }
             </section>
-
         </>
     );
 };

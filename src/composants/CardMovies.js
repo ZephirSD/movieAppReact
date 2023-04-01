@@ -1,12 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
- import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-const CardMovies = ({ movie }) => {
-    let arrayCard = [];
+const CardMovies = ({ movie, setcardState }) => {
     const [genresState, setgenresState] = useState([]);
-    const [cardState, setcardState] = useState("")
     const fetchGenres = () => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=7e84c45fe73529dd9f3040600fd5802a&language=fr-FR`)
             .then(response => setgenresState(response.data.genres));
@@ -19,14 +17,10 @@ const CardMovies = ({ movie }) => {
         return stringDate;
     }
     useEffect(fetchGenres, []);
-    arrayCard.push(cardState);
-    useEffect(() => {
-        localStorage.setItem("cardArray", JSON.stringify(arrayCard));
-    }, [arrayCard]);
     return (
         <>
             <div className="card" style={{position: "relative"}}>
-                <FontAwesomeIcon icon={faHeart} style={{position: "absolute", top: "15px", right: "15px", fontSize: "20px", cursor: "pointer"}} onClick={(e) => setcardState(movie.id)} />
+                <FontAwesomeIcon icon={faHeart} style={{position: "absolute", top: "15px", right: "15px", fontSize: "20px", cursor: "pointer"}} onClick={(e) => setcardState(movie)} />
                 <div className="titre_card">{ movie.title }</div>
                 <div className="date_movies" style={{marginBottom: "5px"}}>
                     <span>Date:</span>
