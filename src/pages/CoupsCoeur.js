@@ -2,11 +2,8 @@ import React from 'react';
 import CardMovies from '../composants/CardMovies';
 import NavCompo from '../composants/NavCompo';
 
-const CoupsCoeur = ({ filmList }) => {
-    //const [fetchLocalStor, setfetchLocalStor] = useState([]);
-    let arrayStor = [];
-    let valueStor = JSON.parse(localStorage.getItem('cardArray'));
-    arrayStor.push(valueStor);
+const CoupsCoeur = ( { arrayStor }) => {
+    let boolLike = true;
     return (
         <>
             <header>
@@ -18,7 +15,7 @@ const CoupsCoeur = ({ filmList }) => {
                     (
                         arrayStor
                         .map((film, index) => (
-                            <CardMovies movie={film} key={index}/>
+                            <CardMovies movie={film} key={index} boolLike={boolLike}/>
                         ))
                     ) : 
                     arrayStor.length > 1 ? 
@@ -26,7 +23,7 @@ const CoupsCoeur = ({ filmList }) => {
                         arrayStor
                         .map((film) => (
                             film.map((fm, index) => (
-                                <CardMovies movie={fm} key={index}/>
+                                <CardMovies movie={fm} key={index} boolLike={boolLike}/>
                             ))
                         ))
                     ) : (<></>)

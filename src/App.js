@@ -7,6 +7,7 @@ import axios from 'axios';
 import CoupCoeurVide from './pages/CoupCoeurVide';
 
 function App() {
+  let arrayStor = [];
   const [filmList, setfilmList] = useState([]);
   const [cardState, setcardState] = useState([]);
   const fetchMovies = () => {
@@ -18,14 +19,21 @@ function App() {
       await localStorage.setItem("cardArray", JSON.stringify(cardState));
     }
     setCardArray();
-  }, [cardState]);
+  });
+  useEffect(() => {
+    async function getCardArray() {
+      let valueStor = await JSON.parse(localStorage.getItem('cardArray'));
+      arrayStor.push(valueStor);
+    }
+    getCardArray();
+  });
   useEffect(fetchMovies, []);
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Accueil setcardState={setcardState} filmList={filmList}/>} />
-          <Route path='/coup-coeur' element={(cardState.length === 0) ? <CoupCoeurVide/> : <CoupsCoeur filmList={filmList}/>} />
+          <Route path='/' element={<Accueil setcardState={setcardState} filmList={filmList} arrayStor={arrayStor}/>} />
+          <Route path='/coup-coeur' element={(cardState.length === 0) ? <CoupCoeurVide/> : <CoupsCoeur arrayStor={arrayStor}/>} />
         </Routes>
       </BrowserRouter>
     </>

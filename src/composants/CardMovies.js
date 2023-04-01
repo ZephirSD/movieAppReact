@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-const CardMovies = ({ movie, setcardState }) => {
+const CardMovies = ({ movie, setcardState, boolLike }) => {
     const [genresState, setgenresState] = useState([]);
     const fetchGenres = () => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=7e84c45fe73529dd9f3040600fd5802a&language=fr-FR`)
@@ -19,8 +19,10 @@ const CardMovies = ({ movie, setcardState }) => {
     useEffect(fetchGenres, []);
     return (
         <>
-            <div className="card" style={{position: "relative"}}>
-                <FontAwesomeIcon icon={faHeart} style={{position: "absolute", top: "15px", right: "15px", fontSize: "20px", cursor: "pointer"}} onClick={(e) => setcardState(movie)} />
+            <div className="card">
+                <div className="iconHeart">
+                    <FontAwesomeIcon icon={faHeart} style={boolLike ? { color: "pink"} : { color: "black"}} onClick={(e) => setcardState(movie)} />
+                </div>
                 <div className="titre_card">{ movie.title }</div>
                 <div className="date_movies" style={{marginBottom: "5px"}}>
                     <span>Date:</span>

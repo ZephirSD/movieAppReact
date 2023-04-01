@@ -6,6 +6,15 @@
     border-radius: 25px;
     background-color: white;
     color: black;
+    position: relative;
+
+    .iconHeart{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
 
     .titre_card {
         font-weight: 600;

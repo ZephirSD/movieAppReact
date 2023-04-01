@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import CardMovies from '../composants/CardMovies';
 import NavCompo from '../composants/NavCompo';
-// import NavBar from '../composants/NavBar';
 
-const Accueil = ({ setcardState, filmList }) => {
+const Accueil = ({ setcardState, filmList, arrayStor }) => {
     const [searchValue, setSearchValue] = useState("");
     const [valueInput, setValueInput] = useState("");
     const [, setsortFilmList] = useState([]);
@@ -24,8 +23,8 @@ const Accueil = ({ setcardState, filmList }) => {
                     filmList && filmList
                         .filter((search) => search.title.toLowerCase().includes(searchValue.toLowerCase()))
                         .map((film, index) => (
-                            <CardMovies key={index} movie={film} setcardState={setcardState}/>
-                        ))
+                            <CardMovies key={index} movie={film} setcardState={setcardState} />
+                    ))
                 }
             </section>
         </>
