@@ -30,19 +30,19 @@ const CardMovies = ({ movie, setcardState, boolLike }) => {
                         { stringDateFR(movie.release_date) }
                     </span>
                 </div>
-                <div className="origin_repas" style={{marginBottom: "5px"}}>
+                <div className="genre_case" style={{marginBottom: "5px"}}>
                     <span>Genres:</span>
-                    <span style={{ marginLeft: "5px" }}>
+                    <ul style={{ marginLeft: "5px" }}>
                         {
                             movie.genre_ids.map((genre) => (
                                 genresState.map((stGenre) => (
-                                    genre === stGenre.id ? stGenre.name : <></>
+                                    genre === stGenre.id ? <li>{stGenre.name}</li> : <></>
                                 ))
                             ))
                         }
-                    </span>
+                    </ul>
                 </div>
-                <div className="origin_repas" style={{ marginBottom: "5px" }}>
+                <div className="note_case" style={{ marginBottom: "5px" }}>
                     <span>Note:</span>
                     <span style={{marginLeft: "5px"}}>{ `${Number(movie.vote_average).toPrecision(3).toString()}/10` }</span>
                 </div>
