@@ -31,6 +31,28 @@
         }
     }
 
+    .genre_case{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        ul{
+            display: flex;
+            text-align: justify;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            li{
+                list-style-type: none;
+            }
+            li + li::before{
+                content: ", ";
+            }
+        }
+    }
+    
     .desc_movies {
         text-align: justify;
         height: 280px;
