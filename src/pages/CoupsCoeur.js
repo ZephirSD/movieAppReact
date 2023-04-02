@@ -9,27 +9,21 @@ const CoupsCoeur = ( { arrayStor }) => {
             <header>
                 <NavCompo/>
             </header>
-            <section className="gridMovies">
-                {
-                    arrayStor.length === 1 ?
-                    (
+            {
+                arrayStor && arrayStor.length > 0 ?
+                <section className="gridMovies">
+                    {
                         arrayStor
                         .map((film, index) => (
                             <CardMovies movie={film} key={index} boolLike={boolLike}/>
                         ))
-                    ) : 
-                    arrayStor.length > 1 ? 
-                    (
-                        arrayStor
-                        .map((film) => (
-                            film.map((fm, index) => (
-                                <CardMovies movie={fm} key={index} boolLike={boolLike}/>
-                            ))
-                        ))
-                    ) : (<></>)
-
-                }
-            </section>
+                    }
+                </section>
+                : 
+                <section className="flexMovies">
+                    <h3 className="textGridMovies">Vous n'avez aucun film dans les coups de coeurs</h3>
+                </section>
+            }
         </>
     );
 };

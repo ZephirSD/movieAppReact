@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CardMovies from '../composants/CardMovies';
 import NavCompo from '../composants/NavCompo';
 
-const Accueil = ({ setcardState, filmList, arrayStor }) => {
+const Accueil = ({ setcardState, filmList }) => {
     const [searchValue, setSearchValue] = useState("");
     const [valueInput, setValueInput] = useState("");
     const [, setsortFilmList] = useState([]);

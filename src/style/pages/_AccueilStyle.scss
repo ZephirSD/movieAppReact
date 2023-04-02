@@ -13,6 +13,7 @@ header {
     height: auto;
 
     div.searchCase {
+        width: 40vw;
         @include flexCenter();
 
         input[type="text"] {
@@ -22,7 +23,6 @@ header {
             border-bottom-left-radius: 25px;
             font-family: var(--montserrat);
             background-color: rgb(255, 207, 148);
-            min-width: 350px;
         }
 
         button {
