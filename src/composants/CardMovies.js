@@ -21,7 +21,7 @@ const CardMovies = ({ movie, setcardState, boolLike }) => {
         <>
             <div className="card">
                 <div className="iconHeart">
-                    <FontAwesomeIcon icon={faHeart} style={boolLike ? { color: "pink"} : { color: "black"}} onClick={(e) => setcardState(movie)} />
+                    <FontAwesomeIcon icon={faHeart} style={boolLike ? { color: "pink"} : { color: "black"}} onClick={(e) => !boolLike ? setcardState(movie) : null} />
                 </div>
                 <div className="titre_card">{ movie.title }</div>
                 <div className="date_movies" style={{marginBottom: "5px"}}>
