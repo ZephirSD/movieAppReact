@@ -15,7 +15,7 @@ const CoupsCoeur = ( { arrayStor }) => {
                     {
                         arrayStor
                         .map((film, index) => (
-                            <CardMovies movie={film} key={index} boolLike={boolLike}/>
+                            <CardMovies movie={film} key={index} boolLike={boolLike} cards={arrayStor}/>
                         ))
                     }
                 </section>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-const CardMovies = ({ movie, setcardState, boolLike }) => {
+const CardMovies = ({ movie, setcardState, boolLike, cards }) => {
     const [genresState, setgenresState] = useState([]);
     const fetchGenres = () => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=7e84c45fe73529dd9f3040600fd5802a&language=fr-FR`)
