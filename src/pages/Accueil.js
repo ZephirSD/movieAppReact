@@ -33,7 +33,6 @@ const Accueil = ({ setcardState, filmList, cards, setSearchFilm, searchFilm }) =
             <section className="gridMovies">
                 {
                     filmList && filmList
-                        .filter((search) => search.title.toLowerCase().includes(searchFilm.toLowerCase()))
                         .map((film, index) => (
                             <CardMovies key={index} movie={film} setcardState={setcardState} cards={cards}/>
                     ))
