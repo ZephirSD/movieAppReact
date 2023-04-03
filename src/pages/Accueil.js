@@ -17,7 +17,6 @@ const Accueil = ({ setcardState, filmList, cards, setSearchFilm, searchFilm }) =
             setsortFilmList(filmList.sort((first, second) => first.vote_average - second.vote_average));
             settextBouton("Top");
         }
-        console.log(toggleBool);
     }
     return (
         <>
